@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitMeal AI - Smart Nutrition for Athletes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="particles"></div>
+    
+    <div class="container">
+        <header class="fade-in">
+            <div class="logo-section">
+                <div class="logo-icon">💪</div>
+                <h1>FitMeal AI</h1>
+            </div>
+            <p class="tagline">Your personal nutrition coach that understands your body in real-time 💙</p>
+            <div class="gender-toggle">
+                <button class="gender-btn active" data-gender="male" id="male-btn">
+                    <span>👨</span> Male
+                </button>
+                <button class="gender-btn" data-gender="female" id="female-btn">
+                    <span>👩</span> Female
+                </button>
+            </div>
+            <div class="diet-toggle">
+                <button class="diet-btn" data-diet="veg" id="veg-btn">
+                    <span>🌱</span> Vegetarian
+                </button>
+                <button class="diet-btn active" data-diet="non-veg" id="nonveg-btn">
+                    <span>🍖</span> Non-Vegetarian
+                </button>
+            </div>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number">60+</span>
+                    <span class="stat-label">Meal Options</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">Vivex</span>
+                    <span class="stat-label">Powered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Available</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="input-section slide-in-left">
+                <div class="section-header">
+                    <h2>📊 How are you feeling?</h2>
+                    <span class="live-indicator">🔴 LIVE</span>
+                </div>
+                
+                <div class="data-input">
+                    <label for="heart-rate">
+                        <span class="icon pulse">❤️</span> Heart Rate
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="number" id="heart-rate" value="75" min="40" max="200">
+                        <span class="unit">bpm</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill hr-progress-initial" id="hr-progress"></div>
+                    </div>
+                    <span class="range-info">Optimal: 60-100 bpm</span>
+                </div>
+
+                <div class="data-input">
+                    <label for="blood-oxygen">
+                        <span class="icon breathe">🫁</span> Blood Oxygen
+                    </label>
+                    <div class="input-wrapper">
+                        <input type="number" id="blood-oxygen" value="98" min="80" max="100">
+                        <span class="unit">%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill o2-progress-initial" id="o2-progress"></div>
+                    </div>
+                    <span class="range-info">Optimal: 95-100%</span>
+                </div>
+
+                <div class="data-input">
+                    <label for="activity-level">
+                        <span class="icon bounce">🏃</span> Activity Level
+                    </label>
+                    <select id="activity-level">
+                        <option value="low">🛋️ Rest Day</option>
+                        <option value="moderate" selected>🚶 Moderate Activity</option>
+                        <option value="high">🏋️ Intense Training</option>
+                    </select>
+                </div>
+
+                <button id="analyze-btn" class="analyze-btn">
+                    <span class="btn-icon">🤖</span>
+                    <span class="btn-text">Find My Perfect Meals</span>
+                    <span class="btn-glow"></span>
+                </button>
+                <p class="helper-text">✨ We'll analyze your data and suggest meals just for you!</p>
+            </div>
+
+            <div class="results-section slide-in-right results-hidden" id="results">
+                <h2>🎯 Here's what we found for you!</h2>
+                
+                <div class="analysis-card" id="analysis-card"></div>
+                
+                <h3>🍽️ Your personalized meal recommendations</h3>
+                <div class="meals-grid" id="meals-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
